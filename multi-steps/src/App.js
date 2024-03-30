@@ -1,9 +1,9 @@
-import './App.css';
+import AppGlobal from "./components/multiSteppApp/appGlobal";
 
 function App() {
   return (
     <div className="App">
-
+      <AppGlobal/>
     </div>
   );
 }
