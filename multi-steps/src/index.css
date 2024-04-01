@@ -2,15 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Ubuntu Bold';
+  src: url(/src/components/multiSteppApp/fonts/Ubuntu-Bold.ttf);
+}
+@font-face {
+  font-family: 'Ubuntu Medium';
+  src: url(/src/components/multiSteppApp/fonts/Ubuntu-Medium.ttf);
+}
+@font-face {
+  font-family: 'Ubuntu Regular';
+  src: url(/src/components/multiSteppApp/fonts/Ubuntu-Regular.ttf);
+}
+
+*{
+  font-family: 'Ubuntu Medium';
+}
+
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+  box-sizing: border-box;         /* Opera/IE 8+ */
 }
 
-.app{
-  width: 1440px;
-  min-height: 100vh;
-  background-color: black;
+input[type="checkbox"]:checked {
+  background-color: #d6d9e6;
+}
+
+/* input[type="checkbox"] {
+  transform: scale(1.5);
+} */
+
+.dsss{
+  color: #a4a7b9;
 }
 
