@@ -2,13 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const addonsSlice = createSlice({
     name:'addons',
-    initialState:{
-        value:{
-            onlineService:'',
-            storage:'',
-            profileTheme: ''
-        }
-    },
+    initialState:{value:{}},
 
     reducers:{
         updateAddons:(state, action) =>{
