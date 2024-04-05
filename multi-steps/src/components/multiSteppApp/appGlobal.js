@@ -8,19 +8,19 @@ import Confirmation from "./step4/confirmation"
 
 export default function AppGlobal(){
 
-    const width = window.innerWidth
-
     return(
-        <div className="w-100% flex min-h-screen bg-[#f0f6ff] home">
-            <div className={`my-auto relative mx-auto ${width <= 800 ? 'flex-col' : 'flex-row'} flex ${width <= 800 ? 'w-[90%]' : 'w-[940px]'} h-[600px] rounded-xl bg-white`}>
+        <div className="w-100% flex min-h-screen bg-[#f0f6ff]">
+            <div className={`my-auto relative mx-auto flex-col lg:flex-row flex w-[90%] lg:w-[940px] lg:h-[600px] h-48 rounded-xl bg-white`}>
                 <SideBar/>
-                <Routes>
-                    <Route path="/" element={<Info/>}/>
-                    <Route path="/plans" element={<Plans/>}/>
-                    <Route path="/addons" element={<Addons/>}/>
-                    <Route path="/checkout" element={<Checkout/>}/>
-                    <Route path="/confirm" element={<Confirmation/>}/>
-                </Routes>
+                <div className={`relative rounded-xl bg-white`}>
+                    <Routes>
+                        <Route path="/" element={<Info/>}/>
+                        <Route path="/plans" element={<Plans/>}/>
+                        <Route path="/addons" element={<Addons/>}/>
+                        <Route path="/checkout" element={<Checkout/>}/>
+                        <Route path="/confirm" element={<Confirmation/>}/>
+                    </Routes>
+                </div>
             </div>
         </div>
     )

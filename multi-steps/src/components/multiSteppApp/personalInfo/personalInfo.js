@@ -6,6 +6,7 @@ import Headers from '../headers'
 import { changePageNumber } from '../../features/pageNumberSlice'
 import {useDispatch } from 'react-redux'
 import InfoForm from './infoForm'
+import NavBtns from '../nav/navLinks'
 
 export default function Info(){
     const [info, setInfo] = useState({
@@ -57,7 +58,7 @@ export default function Info(){
     }
 
     return (
-        <main className='w-full relative my-14 mx-[5rem]'>
+        <main className='w-full relative lg:h-full lg:my-14 lg:mx-[5rem]'>
             <Headers h1={h1} p={p}/>
             <section className='relative'>
                 <InfoForm
@@ -68,7 +69,9 @@ export default function Info(){
                     onChange={handleChange}
                 />
             </section>
-            <Link onClick={handleSubmit} className='rounded-lg flex mx-auto mt-[4.5rem] mr-7 relative items-center justify-center w-32 h-12 bg-[#02295a] text-white'>Next Step</Link>
+            <div className='w-full absolute bottom-16 -right-20'>
+                <NavBtns/>
+            </div>
         </main>
     )
 }
