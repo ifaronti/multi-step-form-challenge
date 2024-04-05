@@ -9,10 +9,10 @@ import Confirmation from "./step4/confirmation"
 export default function AppGlobal(){
 
     return(
-        <div className="w-100% flex min-h-screen bg-[#f0f6ff]">
-            <div className={`my-auto relative mx-auto flex-col lg:flex-row flex w-[90%] lg:w-[940px] lg:h-[600px] h-48 rounded-xl bg-white`}>
+        <div className="w-full relative flex min-h-screen bg-[#f0f6ff]">
+            <div className={`lg:my-auto lg:relative lg:mx-auto flex-col lg:flex-row flex w-full lg:w-[940px] lg:h-[600px] h-full rounded-xl lg:bg-white`}>
                 <SideBar/>
-                <div className={`relative rounded-xl bg-white`}>
+                <div className={`relative w-[90%] mx-auto lg:mx-[all:unset] lg:w-full rounded-xl bg-white`}>
                     <Routes>
                         <Route path="/" element={<Info/>}/>
                         <Route path="/plans" element={<Plans/>}/>

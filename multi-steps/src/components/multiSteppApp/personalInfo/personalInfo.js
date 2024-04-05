@@ -58,9 +58,9 @@ export default function Info(){
     }
 
     return (
-        <main className='w-full relative lg:h-full lg:my-14 lg:mx-[5rem]'>
+        <main className='w-full relative lg:h-full lg:my-14 mx-auto lg:mr-[6.5rem]'>
             <Headers h1={h1} p={p}/>
-            <section className='relative'>
+            <section className='relative mx-auto'>
                 <InfoForm
                     phoneError={phoneError}
                     emailError={emailError}
@@ -69,7 +69,7 @@ export default function Info(){
                     onChange={handleChange}
                 />
             </section>
-            <div className='w-full absolute bottom-16 -right-20'>
+            <div className='w-full lg:ml-80 mx-auto absolute lg:bottom-14'>
                 <NavBtns/>
             </div>
         </main>
