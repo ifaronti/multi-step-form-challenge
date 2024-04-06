@@ -6,7 +6,7 @@ export default function SideBar(){
     const width = window.innerWidth
 
     const sideItems =
-            <div className="relative mt-9 lg:mt-9 justify-center items-center w-[100%] lg:w-[all:unset] lg:flex-col gap-4 flex-row flex lg:gap-8 lg:pl-8">
+            <div className="relative mt-9 lg:mt-9 justify-center w-[100%] lg:w-[all:unset] lg:flex-col gap-4 flex-row flex lg:gap-8 lg:pl-8">
                 <div className="flex items-center lg:gap-3">
                     <div className={`rounded-[100%] text-sm font-Ubuntu-Medium ${page === 1 ? 'bg-[#bfe2fd] text-black' : 'bg-none text-white'} flex items-center justify-center w-[2rem] h-[2rem] border-solid border-[1px]`}>1</div>
                     <div className="hidden lg:block">

@@ -13,16 +13,16 @@ export default function CheckDetails(){
     }
 
     const checkoutDetails = 
-        <div className="w-[450px] px-6 py-4 h-48 bg-[#F8F9FE] rounded-lg">
+        <div className="md:w-[450px] w-[86%] lg:mx-0 mx-auto px-6 py-4 h-48 bg-[#F8F9FE] rounded-lg">
 
             <article className="flex justify-between items-center">
                 <section>
-                    <h2 className="fo font-Ubuntu-Medium text-[#02295a]">{Object.keys(plan)} {yearly ? '(Yeary)': '(Monthly)'}</h2>
+                    <h2 className="font-Ubuntu-Medium md:text-[16px] text-[14px] mb-1 text-[#02295a]">{Object.keys(plan)} {yearly ? '(Yeary)': '(Monthly)'}</h2>
 
-                    <Link onClick={reload} className="text-[#B6B6C0] cursor-pointer hover:text-[#473dff] font-Ubuntu-Regular underline decoration-2">Change</Link>
+                    <Link onClick={reload} className="text-[#B6B6C0] md:text-[16px] text-[14px] cursor-pointer hover:text-[#473dff] font-Ubuntu-Regular underline decoration-2">Change</Link>
                 </section>
 
-                <span className="f font-Ubuntu-Bold text-[#02295a]">{`$${Object.values(plan)}/${yearly ? 'yr' : 'mo'}`}</span>
+                <span className="font-Ubuntu-Bold md:text-[16px] text-[14px] text-[#02295a]">{`$${Object.values(plan)}/${yearly ? 'yr' : 'mo'}`}</span>
 
             </article>
 

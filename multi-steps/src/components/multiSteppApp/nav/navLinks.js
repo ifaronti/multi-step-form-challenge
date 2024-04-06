@@ -17,7 +17,7 @@ export default function NavBtns({back, forward, linkText, background}){
 
     return(
         <div className='flex items-center bottom-8 absolute mx-auto w-[100%] justify-between'>
-            {pageNumber > 1 && <Link onClick={backPage} to={back} className='text-[#b2b2b2] ml-2 relative'>Go back</Link>}
+            <Link onClick={backPage} to={back} className={`text-[#b2b2b2] ${pageNumber === 1 ? 'invisible' : 'visible'} ml-2 relative`}>Go back</Link>
             <Link onClick={forward} className={`rounded-lg flex mr-7 relative items-center justify-center w-32 h-12 ${background ? background : 'bg-[#02295a]'} text-white`}>{linkText || 'Next Step'}</Link>
         </div>
     )

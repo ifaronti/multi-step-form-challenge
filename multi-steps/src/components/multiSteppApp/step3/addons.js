@@ -14,7 +14,7 @@ export default function Addons(){
     const dispatch = useDispatch()
     const goTo = useNavigate()
 
-    // Updates the addonObj var incase an addon is selected.
+    // Updates the addonsObj var incase an addon is selected.
     // The addonsObj is then used to update redux store var addons
     // in the handleSubmit function.
     function handleChange(e){
@@ -25,7 +25,7 @@ export default function Addons(){
         })
     }
 
-    // The checkboxed used needs no validation has they are optional but 
+    // The checkboxes used needs no validation as they are optional but 
     // this function changes the redux store state var page number and
     // also updates addons redux store state var if any addon is selected.
     function handleSubmit(e){
@@ -40,13 +40,13 @@ export default function Addons(){
     const p = 'Add-ons help enhance your gaming experience.'
 
     return(
-        <main className="ml-[3.7rem] mx-auto relative h-[100%]">
+        <main className="lg:w-fit w-full relative mr-0 lg:h-[100%] mb-8 lg:mr-[4.2rem]">
 
-            <div className="mt-14 ml-4"><Header h1={h1} p={p}/></div>
+            <div className="lg:mt-12 mt-10 lg:ml-0 ml-[5%] lg:mb-10 mb-6"><Header h1={h1} p={p}/></div>
 
             <AddonsInput yearly={yearly} handleChange={handleChange}/>
             
-            <div className=" w-[478px] ml-3">
+            <div className=" lg:w-[478px] lg:ml-3">
                 <NavBtns back={'/plans'} forward={handleSubmit}/>
             </div>
         </main>

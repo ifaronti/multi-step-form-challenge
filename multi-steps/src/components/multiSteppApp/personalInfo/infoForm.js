@@ -9,9 +9,9 @@ export default function InfoForm({info, onChange, phoneError, emailError, nameEr
     const errorMsg2 = info.phone === '' ? 'This field is required':'Please enter a valid phone number'
 
 
-    // inputs
+    // inputs for some reasons it 
     const infoForm = 
-    <form>
+    <form className=" relative">
         <label htmlFor='name' className='font flex justify-between capitalize font-Ubuntu-Regular text-sm text-[#02295a]'>
             Name
             <p className={`text-red-500 mr-7 ${nameError ? 'visible': 'invisible'}`}>{errorMsg0}</p>
@@ -24,7 +24,7 @@ export default function InfoForm({info, onChange, phoneError, emailError, nameEr
             name='name'
             required
             placeholder='e.g Jalil Karma'
-            className='w-[450px] indent-3 text-[1rem] font-Ubuntu-Regular border-solid outline-none border-[1px] h-[50px] mb-6 rounded-lg my-0'
+            className='lg:min-w-[450px]  md:w-[450px] sm:w-[450px] max-w-[91%] indent-3 text-[1rem] font-Ubuntu-Regular border-solid outline-none border-[1px] h-[43px] lg:h-[50px] mb-4 lg:mb-6 rounded-[4px] lg:rounded-lg my-0'
         />
 
         <label htmlFor='email' className='font capitalize flex justify-between font-Ubuntu-Regular text-sm text-[#02295a]'>
@@ -33,7 +33,7 @@ export default function InfoForm({info, onChange, phoneError, emailError, nameEr
         </label>
         <input 
             type='email' 
-            className={`w-[450px] ${emailError ? 'border-red-500' : ''} indent-3 text-[1rem] font-Ubuntu-Regular border-solid outline-none border-[1px] h-[50px] mb-6 rounded-lg my-0`} 
+            className={`lg:min-w-[450px]  md:w-[450px] sm:w-[450px] max-w-[91%] ${emailError ? 'border-red-500' : ''} indent-3 text-[1rem] font-Ubuntu-Regular border-solid mb-4 outline-none border-[1px] h-[43px] lg:h-[50px] lg:mb-6 rounded-[4px] lg:rounded-lg my-0`} 
             id='email' value={info.email} 
             onChange={onChange} 
             name='email'
@@ -53,7 +53,7 @@ export default function InfoForm({info, onChange, phoneError, emailError, nameEr
             name='phone'
             required
             placeholder='Enter your phone number'
-            className={`w-[450px] ${phoneError ? 'border-red-500' : ''} indent-3 text-[1rem font-Ubuntu-Regular border-solid outline-none border-[1px] h-[50px] mb-6 rounded-lg my-0`}
+            className={`lg:min-w-[450px]  md:w-[450px] sm:w-[450px] max-w-[91%] ${phoneError ? 'border-red-500' : ''} mb-8 indent-3 text-[1rem font-Ubuntu-Regular border-solid outline-none border-[1px] h-[43px] lg:h-[50px] lg:mb-6 rounded-[4px] lg:rounded-lg my-0`}
         />    
     </form>
 

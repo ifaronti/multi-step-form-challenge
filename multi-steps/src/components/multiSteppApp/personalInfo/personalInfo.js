@@ -1,6 +1,5 @@
 import {useState} from 'react'
 import { useNavigate } from 'react-router'
-import { Link } from 'react-router-dom'
 import { phoneRegex, emailRegex } from './regExp'
 import Headers from '../headers'
 import { changePageNumber } from '../../features/pageNumberSlice'
@@ -58,9 +57,10 @@ export default function Info(){
     }
 
     return (
-        <main className='w-full relative lg:h-full lg:my-14 mx-auto lg:mr-[6.5rem]'>
-            <Headers h1={h1} p={p}/>
-            <section className='relative mx-auto'>
+        <main className='lg:w-full relative lg:h-full lg:my-14 mx-auto lg:mr-[6.5rem]'>
+            <div className='ml-7 mt-6 lg:mt-[unset]'>
+                <Headers h1={h1} p={p}/>
+            
                 <InfoForm
                     phoneError={phoneError}
                     emailError={emailError}
@@ -68,9 +68,9 @@ export default function Info(){
                     info={info}
                     onChange={handleChange}
                 />
-            </section>
-            <div className='w-full lg:ml-80 mx-auto absolute lg:bottom-14'>
-                <NavBtns/>
+            </div>
+            <div className='w-[100%] lg:h-[unset] lg:bg-none bg-white h-[75px] lg:ml-[59.5%] mt-20 lg:mt-[unset] absolute lg:bottom-14'>
+                <NavBtns forward={handleSubmit}/>
             </div>
         </main>
     )

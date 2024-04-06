@@ -21,9 +21,9 @@ export default function Checkout(){
 
     // The display section for picked
     const total = 
-        <section className="flex mt-6 px-6 items-center justify-between">
-            <p className="f font-Ubuntu-Regular font-thin text-sm text-[#a4a7b9]">Total (per month)</p>
-            <p className="text-[#473dff] text-xl mr-5 font-Ubuntu-Bold">{`+$${pickedTotal}/${yearly ? 'yr': 'mo'}`}</p>
+        <section className="flex w-full mt-6 md:px-6 px-12 items-center justify-between">
+            <p className="f font-Ubuntu-Regular font-thin text-sm text-[#a4a7b9]">Total ({yearly ? 'per year' : 'per month'})</p>
+            <p className="text-[#473dff] md:text-xl text-lg  font-Ubuntu-Bold">{`+$${pickedTotal}/${yearly ? 'yr': 'mo'}`}</p>
         </section>
 
     // Confirms purchases by navigating to final page
@@ -33,7 +33,7 @@ export default function Checkout(){
     }
 
     return(
-        <main className="mx-20 relative mt-14">
+        <main className="lg:mx-20 mb-8 relative mt-14">
 
             <Header h1={h1} p={p}/>
 

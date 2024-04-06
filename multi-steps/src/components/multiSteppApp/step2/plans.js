@@ -68,12 +68,12 @@ export default function Plans(){
     const p = 'You have the option of monthly or yearly billing'
 
     return(
-        <main className="mx-auto ml-[3.7rem] my-auto h-[100%] flex-col flex relative w-fit">
+        <main className="h-[100%] lg:mr-[4.5rem] flex-col flex relative">
 
-            <div className="ml-3 mt-14 -mb-5"><Header h1={h1} p={p}/></div>
+            <div className="lg:ml-3 ml-5 lg:mt-14 mt-8 -mb-5"><Header h1={h1} p={p}/></div>
 
             <RadioBtns yearly={yearly} handleChange={handleChange}/>
-
+            
             <Slider onChange={handleSlider}/>
             {errorMsg}
 
