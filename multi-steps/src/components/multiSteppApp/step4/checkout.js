@@ -1,14 +1,22 @@
-import NavBtns from "../nav/navLinks"
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 import CheckDetails from "./checkOutDetails"
 import Header from "../headers"
-import { useNavigate } from "react-router"
+import { useEffect } from "react"
+import { changePageNumber } from "../../features/pageNumberSlice"
+import { navigateTo } from "../../features/navigateSlice"
 
 export default function Checkout(){
     const plan = useSelector(state => state.plan.value)
     const yearly = useSelector(state => state.yearly.value)
     const addons = useSelector(state => state.addons.value)
-    const goTo = useNavigate()
+    const dispatch = useDispatch()
+
+
+    useEffect(()=>{
+        dispatch(changePageNumber(4))
+        dispatch(navigateTo({forward:'/confirm', back:'/addons'}))
+        // eslint-disable-next-line
+    },[])
 
     // Header text props values
     const h1 = 'Finishing up'
@@ -26,24 +34,14 @@ export default function Checkout(){
             <p className="text-[#473dff] md:text-xl text-lg  font-Ubuntu-Bold">{`+$${pickedTotal}/${yearly ? 'yr': 'mo'}`}</p>
         </section>
 
-    // Confirms purchases by navigating to final page
-    function confirm(e){
-        e.preventDefault()
-        goTo("/confirm")
-    }
-
     return(
-        <main className="lg:mx-20 mb-8 relative mt-14">
+        <main className="mx-20 mb-8 relative mt-14">
 
             <Header h1={h1} p={p}/>
 
             <CheckDetails/>
 
             {total}
-
-            <div className="w-[473px]">
-                <NavBtns forward={confirm} linkText='Confirm' back={'/addons'} background='bg-[#473dff]'/>
-            </div>
         </main>
     )
 }

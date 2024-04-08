@@ -1,11 +1,11 @@
-import {useState} from 'react'
-import { useNavigate } from 'react-router'
+import {useEffect, useState} from 'react'
 import { phoneRegex, emailRegex } from './regExp'
 import Headers from '../headers'
-import { changePageNumber } from '../../features/pageNumberSlice'
-import {useDispatch } from 'react-redux'
+import {useDispatch} from 'react-redux'
 import InfoForm from './infoForm'
-import NavBtns from '../nav/navLinks'
+import { changeConfirm } from '../../features/confirmSlice'
+import { navigateTo } from '../../features/navigateSlice'
+import { changePageNumber } from '../../features/pageNumberSlice'
 
 export default function Info(){
     const [info, setInfo] = useState({
@@ -20,7 +20,6 @@ export default function Info(){
     const [nameError, setNameError] = useState(false)
 
     const dispatch = useDispatch()
-    const goTo = useNavigate()
 
     const h1 = 'Personal info'
     const p = 'Please provide your name, email address and phone number'
@@ -40,21 +39,41 @@ export default function Info(){
     }
 
     // Checks inputs' validity before moving to step 2.
-    // It also changes page number for redux store update.
-    function handleSubmit(event){
-        event.preventDefault()
+    // if inputs' values are all valid, it'll change
+    // redux var confirm and also update the navigation
+    // object var in redux store.
+    function handleSubmit(){
         if(info.name === ''){
-            return setNameError(true)
+             setNameError(true)
+             dispatch(changeConfirm(false))
+             return
          }
         if(!emailRegex.test(info.email)){
-            return setEmailError(true)
+             setEmailError(true)
+             dispatch(changeConfirm(false))
+             return
         }
         if(!phoneRegex.test(info.phone)){
-            return setPhoneError(true)
+            setPhoneError(true)
+            dispatch(changeConfirm(false))
+            return
         }
-        dispatch(changePageNumber(2))
-        goTo('/plans')
+        dispatch(changeConfirm(true))
+        dispatch(navigateTo({forward:'/plans', back:''}))
     }
+
+    // changes redux store var pageNumber to 1
+    // whenever this component loads for sidebar
+    // styling.
+    useEffect(()=>{
+        dispatch(changePageNumber(1)) 
+    },[dispatch])
+
+    //calls the handleSubmit function as infos changes
+    useEffect(()=>{
+        handleSubmit()
+        // eslint-disable-next-line
+    }, [info])
 
     return (
         <main className='lg:w-full relative lg:h-full lg:my-14 mx-auto lg:mr-[6.5rem]'>
@@ -68,9 +87,6 @@ export default function Info(){
                     info={info}
                     onChange={handleChange}
                 />
-            </div>
-            <div className='w-[100%] lg:h-[unset] lg:bg-none bg-white h-[75px] lg:ml-[59.5%] mt-20 lg:mt-[unset] absolute lg:bottom-14'>
-                <NavBtns forward={handleSubmit}/>
             </div>
         </main>
     )

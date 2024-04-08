@@ -11,7 +11,7 @@ export default function InfoForm({info, onChange, phoneError, emailError, nameEr
 
     // inputs for some reasons it 
     const infoForm = 
-    <form className=" relative">
+    <div className=" relative">
         <label htmlFor='name' className='font flex justify-between capitalize font-Ubuntu-Regular text-sm text-[#02295a]'>
             Name
             <p className={`text-red-500 mr-7 ${nameError ? 'visible': 'invisible'}`}>{errorMsg0}</p>
@@ -55,7 +55,7 @@ export default function InfoForm({info, onChange, phoneError, emailError, nameEr
             placeholder='Enter your phone number'
             className={`lg:min-w-[450px]  md:w-[450px] sm:w-[450px] max-w-[91%] ${phoneError ? 'border-red-500' : ''} mb-8 indent-3 text-[1rem font-Ubuntu-Regular border-solid outline-none border-[1px] h-[43px] lg:h-[50px] lg:mb-6 rounded-[4px] lg:rounded-lg my-0`}
         />    
-    </form>
+    </div>
 
     return infoForm
 }

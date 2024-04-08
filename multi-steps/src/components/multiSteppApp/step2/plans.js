@@ -3,11 +3,11 @@ import Header from "../headers";
 import { useSelector, useDispatch } from "react-redux";
 import { changeYearly } from "../../features/yearlySlice";
 import { updatePlan } from "../../features/planValueSlice";
-import { useNavigate } from 'react-router-dom';
-import {useState } from 'react';
-import { changePageNumber } from '../../features/pageNumberSlice';
-import NavBtns from '../nav/navLinks';
+import {useState, useEffect } from 'react';
+import { changePageNumber } from '../../features/pageNumberSlice'
 import RadioBtns from './radioBtnsForm';
+import { changeConfirm } from '../../features/confirmSlice';
+import { navigateTo } from '../../features/navigateSlice';
 
 export default function Plans(){
     const yearly = useSelector(state => state.yearly.value)
@@ -16,9 +16,7 @@ export default function Plans(){
     const [showError, setShowError] = useState(false)
 
     const dispatch = useDispatch()
-    const goTo = useNavigate()
     
-
     // updates the plan variable in redux store updates price state variable
     // used to check if an option has been selected in handleSubmit function.
 
@@ -28,32 +26,49 @@ export default function Plans(){
         setSelected(picked)
         setPrice(value)
         setShowError(false)
+        
     }
+
+    useEffect(()=>{
+        dispatch(changePageNumber(2))
+        dispatch(changeConfirm(false))
+        dispatch(navigateTo('/plans')) 
+    // eslint-disable-next-line
+    },[])
 
     function handleSlider(e){
         const {checked} = e.target
+        const newKeys = Object?.keys(selected)
+        const newValue = Number(Object.values(selected)) * 10
         if(checked){
-            return dispatch(changeYearly(true))
+            dispatch(changeYearly(true))
+            setSelected({[newKeys]:newValue})
         }
-        if(!checked){
-            return dispatch(changeYearly(false))
+        else{
+             dispatch(changeYearly(false))
         }
     }
 
     // Ensures a plan has been selected before moving to step 3. This also
     // changes the page number redux state var for the sideBar styling change.
 
-    function handleSubmit(e){
-        e.preventDefault()
+    function handleSubmit(){
         if(price === 0){
             setShowError(true)
+            dispatch(changeConfirm(false))
+            dispatch(navigateTo({forward:'', back:'/'}))
         }
         else{
-            dispatch(changePageNumber(3))
             dispatch(updatePlan(selected))
-            goTo('/addons')
+            dispatch(changeConfirm(true))
+            dispatch(navigateTo({forward:'/addons', back:'/'}))
         }
     }
+
+    useEffect(()=>{
+        handleSubmit()
+      // eslint-disable-next-line
+    },[price, selected, showError])
 
     // error msg displayed when no plan is selected
     const errorMsg = 
@@ -76,10 +91,6 @@ export default function Plans(){
             
             <Slider onChange={handleSlider}/>
             {errorMsg}
-
-            <div className='ml-3'>
-                <NavBtns back={'/'} forward={handleSubmit}/>
-            </div>
         </main>
     )
 }

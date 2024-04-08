@@ -5,6 +5,7 @@ import Addons from "./step3/addons"
 import Checkout from "./step4/checkout"
 import { Routes, Route } from "react-router"
 import Confirmation from "./step4/confirmation"
+import NavBtns from "./nav/navLinks"
 
 export default function AppGlobal(){
 
@@ -21,6 +22,7 @@ export default function AppGlobal(){
                         <Route path="/confirm" element={<Confirmation/>}/>
                     </Routes>
                 </div>
+                <NavBtns/>
             </div>
         </div>
     )

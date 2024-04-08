@@ -1,8 +1,10 @@
 import LabelContentTextOnline from "./onlineText"
 import LabelContentTextStorage from "./storageText"
 import LabelContentTextProfile from "./profileText"
+import {useSelector }from "react-redux"
 
-export default function AddonsInput({handleChange, yearly}){
+export default function AddonsInput({handleChange}){
+    const yearly = useSelector(state=> state.yearly.value)
 
     const checkBoxes = 
         <form className="relative w-full flex flex-col  sm:block">    
