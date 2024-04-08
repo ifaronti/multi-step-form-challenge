@@ -13,7 +13,7 @@ export default function AppGlobal(){
         <div className="w-full relative flex min-h-screen bg-[#f0f6ff]">
             <div className={`lg:my-auto lg:relative lg:mx-auto flex-col lg:flex-row flex w-full lg:w-[940px] lg:h-[600px] h-full rounded-xl lg:bg-white`}>
                 <SideBar/>
-                <div className={`relative w-[92%] mx-auto mt-8 lg:mt-[unset] lg:mx-[all:unset] lg:w-full rounded-xl bg-white`}>
+                <div className={`relative max-w-[650px] w-[92%] flex items-center justify-center mx-auto mt-8 lg:mt-[unset] lg:block lg:mx-[unset] lg:w-full rounded-xl bg-white`}>
                     <Routes>
                         <Route path="/" element={<Info/>}/>
                         <Route path="/plans" element={<Plans/>}/>
@@ -22,7 +22,9 @@ export default function AppGlobal(){
                         <Route path="/confirm" element={<Confirmation/>}/>
                     </Routes>
                 </div>
-                <NavBtns/>
+               <div className="absolute w-[100%] h-[80px] lg:bg-none bg-white lg:h-[unset] flex items-center justify-center  lg:ml-[9.2rem] bottom-[-8px]">
+                    <NavBtns/>
+                </div>
             </div>
         </div>
     )

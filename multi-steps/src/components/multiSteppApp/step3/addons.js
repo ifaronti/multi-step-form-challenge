@@ -44,7 +44,7 @@ export default function Addons(){
     const p = 'Add-ons help enhance your gaming experience.'
 
     return(
-        <main className="lg:w-fit w-full relative mr-0 lg:h-[100%] mb-8 lg:mr-[4.2rem]">
+        <main className="lg:w-fit w-full relative mr-0 lg:h-[100%] mb-8 lg:mr-[6rem]">
 
             <div className="lg:mt-12 mt-10 lg:ml-0 ml-[5%] lg:mb-10 mb-6"><Header h1={h1} p={p}/></div>
 

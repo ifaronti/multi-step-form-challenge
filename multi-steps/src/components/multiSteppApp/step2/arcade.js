@@ -1,6 +1,6 @@
 export default function Arcade({yearly}){
  return  ( 
-        <div className="mx-[1rem] mt-2 relative h-full flex items-center gap-4 lg:gap-0 lg:block lg:my-5 text-[#02295a]">
+        <div className="mx-[1rem] mt-3 flex lg:block gap-4 lg:gap-0 lg:my-5 text-[#02295a]">
             <img src={`
                     ${process.env.PUBLIC_URL}
                     /assets/images/icon-arcade.svg`

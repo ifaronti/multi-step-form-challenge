@@ -73,7 +73,7 @@ export default function Plans(){
     // error msg displayed when no plan is selected
     const errorMsg = 
         <p 
-            className={`text-red-500 mx-auto mt-2 
+            className={`text-red-500 mx-auto mt-3 
             ${showError ? 'visible' : 'invisible'}`}
             >One plan must be selected
         </p>
@@ -83,9 +83,9 @@ export default function Plans(){
     const p = 'You have the option of monthly or yearly billing'
 
     return(
-        <main className="h-[100%] lg:mr-[4.5rem] flex-col flex relative">
+        <main className="h-[100%] lg:mr-[4.5rem] lg:mb-[unset] mb-8 flex-col flex relative">
 
-            <div className="lg:ml-3 ml-5 lg:mt-14 mt-8 -mb-5"><Header h1={h1} p={p}/></div>
+            <div className="lg:ml-3 ml-5 lg:mt-12 mt-8 -mb-7"><Header h1={h1} p={p}/></div>
 
             <RadioBtns yearly={yearly} handleChange={handleChange}/>
             

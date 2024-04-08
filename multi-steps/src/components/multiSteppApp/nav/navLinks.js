@@ -13,9 +13,21 @@ export default function NavBtns(){
     }
 
     return(
-        <div className='flex items-center bottom-8 absolute mx-auto w-[100%] justify-between'>
-            <Link onClick={backClick} to={goTo?.back} className={`text-[#b2b2b2] ${pageNumber === 1 ? 'invisible' : 'visible'} ml-2 relative`}>Go back</Link>
-            <Link to={confirm ? goTo?.forward : null} className={`rounded-lg flex mr-7 relative items-center justify-center w-32 h-12 ${pageNumber === 4 ? 'bg-[#473dff]' : 'bg-[#02295a]'} text-white`}>{pageNumber === 4 ? 'Confirm' : 'Next Step'}</Link>
+        <div className='flex items-center lg:my-[unset] lg:p-0 p-5 lg:h-[unset] h-100% lg:bottom-8 absolute lg:w-[462px] w-[100%] justify-between'>
+            <Link onClick={backClick} to={goTo?.back} className={`text-[#b2b2b2] ${pageNumber === 1 ? 'invisible' : 'visible'} font-Ubuntu-Medium relative`}>Go back</Link>
+            <Link 
+                to={confirm ? goTo?.forward : null} 
+                className={`
+                    lg:rounded-lg 
+                    lg:text-[1rem] 
+                    text-[15px] 
+                    font-Ubuntu-Medium rounded-md flex 
+                    relative w-[100px] h-[44px] items-center 
+                    justify-center lg:w-32 lg:h-12 
+                    ${pageNumber === 4 ? 'bg-[#473dff]' 
+                    : 'bg-[#02295a]'} text-white`}>
+                    {pageNumber === 4 ? 'Confirm' : 'Next Step'}
+            </Link>
         </div>
     )
 }

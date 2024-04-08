@@ -76,8 +76,8 @@ export default function Info(){
     }, [info])
 
     return (
-        <main className='lg:w-full relative lg:h-full lg:my-14 mx-auto lg:mr-[6.5rem]'>
-            <div className='ml-7 mt-6 lg:mt-[unset]'>
+        <main className='lg:w-full relative lg:h-full lg:px-0 px-6 lg:my-14 lg:mr-[6rem]'>
+            <div className='lg:ml-7 mt-6 lg:mt-[unset]'>
                 <Headers h1={h1} p={p}/>
             
                 <InfoForm
