@@ -14,6 +14,7 @@ export default function Plans(){
     const [price, setPrice] = useState(0)
     const [selected, setSelected] = useState({})
     const [showError, setShowError] = useState(false)
+    const [monthlyValue, setMonthlyValue] = useState({})
 
     const dispatch = useDispatch()
     
@@ -26,6 +27,7 @@ export default function Plans(){
         setSelected(picked)
         setPrice(value)
         setShowError(false)
+        setMonthlyValue(picked)
         
     }
 
@@ -46,6 +48,7 @@ export default function Plans(){
         }
         else{
              dispatch(changeYearly(false))
+             setSelected(monthlyValue)
         }
     }
 
