@@ -21,7 +21,7 @@ export default function CheckDetails(){
 
             <article className="flex justify-between items-center">
                 <section>
-                    <h2 className="font-Ubuntu-Medium md:text-[16px] text-[14px] mb-1 text-[#02295a]">{Object.keys(plan)} {yearly ? '(Yearly)': '(Monthly)'}</h2>
+                    <h2 className="font-Ubuntu-Medium md:text-[16px] text-[14px] capitalize mb-1 text-[#02295a]">{Object.keys(plan)} {yearly ? '(Yearly)': '(Monthly)'}</h2>
 
                     <Link onClick={reload} className="text-[#B6B6C0] md:text-[16px] text-[14px] cursor-pointer hover:text-[#473dff] font-Ubuntu-Regular underline decoration-2">Change</Link>
                 </section>

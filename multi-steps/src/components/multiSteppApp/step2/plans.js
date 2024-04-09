@@ -11,21 +11,19 @@ import { navigateTo } from '../../features/navigateSlice';
 
 export default function Plans(){
     const yearly = useSelector(state => state.yearly.value)
-    const [price, setPrice] = useState(0)
-    const [selected, setSelected] = useState({})
+    const [selected, setSelected] = useState(null)
     const [showError, setShowError] = useState(false)
     const [monthlyValue, setMonthlyValue] = useState({})
 
     const dispatch = useDispatch()
     
-    // updates the plan variable in redux store updates price state variable
-    // used to check if an option has been selected in handleSubmit function.
+    // updates selected and monthlyValue state variable used to check if an
+    // option has been selected in handleSubmit function.
 
     function handleChange(e){
         const {value, id} = e.target
         const picked = {[id]: value}
         setSelected(picked)
-        setPrice(value)
         setShowError(false)
         setMonthlyValue(picked)
         
@@ -34,7 +32,6 @@ export default function Plans(){
     useEffect(()=>{
         dispatch(changePageNumber(2))
         dispatch(changeConfirm(false))
-        dispatch(navigateTo('/plans')) 
     // eslint-disable-next-line
     },[])
 
@@ -52,11 +49,11 @@ export default function Plans(){
         }
     }
 
-    // Ensures a plan has been selected before moving to step 3. This also
-    // changes the page number redux state var for the sideBar styling change.
+    // Ensures a plan has been selected before moving to step 3.
+    // This also updates the redux store's navigation and plan objects 
 
     function handleSubmit(){
-        if(price === 0){
+        if(!selected){
             setShowError(true)
             dispatch(changeConfirm(false))
             dispatch(navigateTo({forward:'', back:'/'}))
@@ -71,7 +68,7 @@ export default function Plans(){
     useEffect(()=>{
         handleSubmit()
       // eslint-disable-next-line
-    },[price, selected, showError])
+    },[selected, showError])
 
     // error msg displayed when no plan is selected
     const errorMsg = 
