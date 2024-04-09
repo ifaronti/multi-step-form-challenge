@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { Link } from "react-router-dom"
 import {useDispatch} from 'react-redux'
 import { changePageNumber } from "../../features/pageNumberSlice"
+import { navigateTo } from "../../features/navigateSlice"
 
 
 export default function Confirmation(){
@@ -9,11 +10,12 @@ export default function Confirmation(){
 
     useEffect(()=>{
         dispatch(changePageNumber(4))
+        dispatch(navigateTo({forward:'/', back:'/'}))
         // eslint-disable-next-line
     },[])
 
     const confirmationPage = 
-            <main className='h-full w-full justify-center mb-28 items-center mt-8  lg:-mt-4 relative lg:-ml-[7rem] flex flex-col'>
+            <main className='h-full w-full justify-center mb-28 items-center mt-8  lg:-mt-1 relative lg:-ml-[7rem] flex flex-col'>
                 <header className={'mb-5'}>
                     <img src={`${process.env.PUBLIC_URL}/assets/images/icon-thank-you.svg`} alt="" />
                 </header>
@@ -26,7 +28,6 @@ export default function Confirmation(){
                     If you ever need support, please feel free
                     to email us at support@loregaming.com.
                 </p>
-                <Link className="absolute rounded-lg text-white w-24 flex justify-center items-center text-center h-10 bg-orange-400 -bottom-20 lg:bottom-20" to='/'>Test Again</Link>
             </main>
 
     return confirmationPage

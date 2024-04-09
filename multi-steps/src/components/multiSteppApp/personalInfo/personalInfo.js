@@ -6,6 +6,7 @@ import InfoForm from './infoForm'
 import { changeConfirm } from '../../features/confirmSlice'
 import { navigateTo } from '../../features/navigateSlice'
 import { changePageNumber } from '../../features/pageNumberSlice'
+import { changeYearly } from "../../features/yearlySlice";
 
 export default function Info(){
     const [info, setInfo] = useState({
@@ -66,7 +67,8 @@ export default function Info(){
     // whenever this component loads for sidebar
     // styling.
     useEffect(()=>{
-        dispatch(changePageNumber(1)) 
+        dispatch(changePageNumber(1))
+        dispatch(changeYearly(false))
     },[dispatch])
 
     //calls the handleSubmit function as infos changes
