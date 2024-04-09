@@ -1,5 +1,4 @@
 import { useEffect } from "react"
-import { Link } from "react-router-dom"
 import {useDispatch} from 'react-redux'
 import { changePageNumber } from "../../features/pageNumberSlice"
 import { navigateTo } from "../../features/navigateSlice"
