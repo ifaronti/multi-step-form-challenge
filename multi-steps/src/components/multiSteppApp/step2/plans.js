@@ -26,7 +26,6 @@ export default function Plans(){
         setSelected(picked)
         setShowError(false)
         setMonthlyValue(picked)
-        
     }
 
     useEffect(()=>{
